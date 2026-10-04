@@ -19,6 +19,31 @@ interface Schedule {
 const MIN_WORKERS_PER_DAY = 2;
 const MAX_WORKERS_PER_DAY = 3;
 
+// Číslo verzie zobrazené vpravo hore (pri každej zmene zvýšiť)
+const APP_VERSION = '3.1';
+
+// Logo Arpad_AI: písmeno A v zaoblenom štvorci s „AI iskrou“
+const ArpadLogo = ({ className = '' }: { className?: string }) => (
+  <svg viewBox="0 0 32 32" className={className} aria-hidden="true">
+    <defs>
+      <linearGradient id="arpad-logo-bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#f43f5e" />
+        <stop offset="100%" stopColor="#881337" />
+      </linearGradient>
+    </defs>
+    <rect x="1" y="1" width="30" height="30" rx="8" fill="url(#arpad-logo-bg)" />
+    <path
+      d="M9 23 L16 8 L23 23 M11.8 17.5 H20.2"
+      fill="none"
+      stroke="white"
+      strokeWidth="2.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path d="M25 4.5 L25.9 6.6 L28 7.5 L25.9 8.4 L25 10.5 L24.1 8.4 L22 7.5 L24.1 6.6 Z" fill="#fecdd3" />
+  </svg>
+);
+
 const defaultEmployees: Employee[] = [
   { id: 1, name: 'Zamestnanec 1', selected: true, blockedDays: [], requiredDays: [] },
   { id: 2, name: 'Zamestnanec 2', selected: true, blockedDays: [], requiredDays: [] },
@@ -523,8 +548,14 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 p-4 md:py-12 md:px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="text-right mb-4">
-          <span className="text-lg text-indigo-600/80">Created by <span className="font-signature">ARpad_ai</span></span>
+        <div className="flex flex-col items-end gap-1 mb-4">
+          <div className="flex items-center gap-2.5 opacity-80 hover:opacity-100 transition-opacity">
+            <ArpadLogo className="w-7 h-7" />
+            <span className="text-sm font-semibold tracking-wide text-gray-700">
+              Arpad<span className="text-rose-500">_AI</span>
+            </span>
+          </div>
+          <p className="text-gray-500 text-xs">verzia {APP_VERSION}</p>
         </div>
         
         <div className="flex items-center gap-3 mb-8">
