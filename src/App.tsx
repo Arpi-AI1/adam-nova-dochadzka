@@ -530,7 +530,7 @@ function App() {
         <div className="flex items-center gap-3 mb-8">
           <CalendarIcon className="w-8 h-8 text-indigo-600" />
           <h1 className="text-2xl md:text-3xl font-bold text-red-600">
-            Plánovač - Otrokaris v.3
+            Thajské masáže - plánovač smien
           </h1>
         </div>
         
